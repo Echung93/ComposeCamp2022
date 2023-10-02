@@ -67,6 +67,9 @@ object SingleAccount : RallyDestination {
     val arguments = listOf(
         navArgument(accountTypeArg) { type = NavType.StringType }
     )
+    val deepLink = listOf(
+        navDeepLink { uriPattern = "rally://$route/{$accountTypeArg}" }
+    )
 }
 
 // Screens to be displayed in the top RallyTabRow
