@@ -24,6 +24,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -101,7 +102,10 @@ fun RallyApp() {
                         "${SingleAccount.route}/{${SingleAccount.accountTypeArg}}",
                     arguments = SingleAccount.arguments
                 ) {
-                    SingleAccountScreen()
+                    NavBackStackEntry ->
+                    val accountType = NavBackStackEntry.arguments?.getString(SingleAccount.accountTypeArg)
+
+                    SingleAccountScreen(accountType)
                 }
             }
         }
