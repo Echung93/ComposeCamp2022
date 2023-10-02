@@ -90,14 +90,14 @@ fun RallyApp() {
                             navController.navigateSingleTopTo(Bills.route)
                         },
                         onAccountClick = { accountType ->
-                            navController.navigateSingleTopTo("${SingleAccount.route}/$accountType")
+                            navController.navigateToSingleAccount(accountType)
                         }
                     )
                 }
                 composable(route = Accounts.route) {
                     AccountsScreen(
                         onAccountClick = { accountType ->
-                            navController.navigateSingleTopTo("${SingleAccount.route}/$accountType")
+                            navController.navigateToSingleAccount(accountType)
                         }
                     )
                 }
@@ -116,4 +116,8 @@ fun RallyApp() {
             }
         }
     }
+}
+
+private fun NavHostController.navigateToSingleAccount(accountType: String) {
+    this.navigateSingleTopTo("${SingleAccount.route}/$accountType")
 }
