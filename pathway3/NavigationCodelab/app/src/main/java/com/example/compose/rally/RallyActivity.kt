@@ -98,7 +98,11 @@ fun RallyApp() {
                 }
                 composable(
                     route =
-                        "${SingleAccount.route}/{${SingleAccount.accountTypeArg}}") {
+                        "${SingleAccount.route}/{${SingleAccount.accountTypeArg}}",
+                    arguments = listOf(
+                        navArgument(SingleAccount.accountTypeArg) { type = NavType.StringType }
+                    )
+                ) {
                     SingleAccountScreen()
                 }
             }
