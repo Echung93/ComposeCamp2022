@@ -38,4 +38,15 @@ class NavigationTest {
             .onNodeWithContentDescription("Overview Screen")
             .assertIsDisplayed()
     }
+
+    @Test
+    fun rallyNavHost_clickAllAccount_navigatesToAccounts() {
+        composeTestRule
+            .onNodeWithContentDescription("All Accounts")
+            .performClick()
+
+        composeTestRule
+            .onNodeWithContentDescription("Accounts Screen")
+            .assertIsDisplayed()
+    }
 }
