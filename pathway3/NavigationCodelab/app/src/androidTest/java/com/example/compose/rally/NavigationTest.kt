@@ -1,7 +1,10 @@
 package com.example.compose.rally
 
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.onNodeWithContentDescription
+import androidx.compose.ui.test.performClick
 import androidx.navigation.compose.ComposeNavigator
 import androidx.navigation.testing.TestNavHostController
 import junit.framework.TestCase.fail
@@ -27,6 +30,9 @@ class NavigationTest {
             )
             RallyNavHost(navController = navController)
         }
-        fail()
+
+        composeTestRule
+            .onNodeWithContentDescription("Overview Screen")
+            .assertIsDisplayed()
     }
 }
