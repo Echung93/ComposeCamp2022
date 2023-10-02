@@ -98,8 +98,7 @@ fun RallyApp() {
                     BillsScreen()
                 }
                 composable(
-                    route =
-                        "${SingleAccount.route}/{${SingleAccount.accountTypeArg}}",
+                    route = SingleAccount.routeWithArgs,
                     arguments = SingleAccount.arguments
                 ) {
                     NavBackStackEntry ->
